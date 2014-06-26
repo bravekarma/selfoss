@@ -198,12 +198,12 @@ class ContentLoader {
         return htmLawed(
             $content,
             array(
-                "safe"           => 1,
+                "safe"           => 0,
                 "deny_attribute" => '* -alt -title -src -href',
                 "keep_bad"       => 0,
                 "comment"        => 1,
                 "cdata"          => 1,
-                "elements"       => 'div,p,ul,li,a,img,dl,dt,dd,h1,h2,h3,h4,h5,h6,ol,br,table,tr,td,blockquote,pre,ins,del,th,thead,tbody,b,i,strong,em,tt'
+                "elements"       => 'div,p,ul,li,a,img,dl,dt,dd,h1,h2,h3,h4,h5,h6,ol,br,table,tr,td,blockquote,pre,ins,del,th,thead,tbody,b,i,strong,em,tt,iframe,object,param,embed'
             )
         );
     }
