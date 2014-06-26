@@ -154,6 +154,13 @@ class feed extends \spouts\spout {
         @$this->feed->set_feed_url(htmlspecialchars_decode($params['url']));
         @$this->feed->set_autodiscovery_level( SIMPLEPIE_LOCATOR_AUTODISCOVERY | SIMPLEPIE_LOCATOR_LOCAL_EXTENSION | SIMPLEPIE_LOCATOR_LOCAL_BODY);
          
+        // do not strip video embeds etc
+        $strip_htmltags = @$this->$feed->strip_htmltags;
+        array_splice($strip_htmltags, array_search('iframe', $strip_htmltags), 1);
+        array_splice($strip_htmltags, array_search('object', $strip_htmltags), 1);
+        array_splice($strip_htmltags, array_search('param', $strip_htmltags), 1);
+        array_splice($strip_htmltags, array_search('embed', $strip_htmltags), 1);
+        
         // fetch items
         @$this->feed->init();
         
