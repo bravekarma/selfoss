@@ -160,6 +160,7 @@ class feed extends \spouts\spout {
         array_splice($strip_htmltags, array_search('object', $strip_htmltags), 1);
         array_splice($strip_htmltags, array_search('param', $strip_htmltags), 1);
         array_splice($strip_htmltags, array_search('embed', $strip_htmltags), 1);
+        @$this->feed->strip_htmltags($strip_htmltags);
         
         // fetch items
         @$this->feed->init();
