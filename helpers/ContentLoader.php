@@ -128,6 +128,11 @@ class ContentLoader {
                 // fetch content
                 $content = $item->getContent();
                 
+                // replace alt image tags in RPS with title tags
+                if(strpos($content,"rockpapershotgun") !== false) {
+                    $content = str_replace("alt=", "title=", $content);
+                }
+                
                 // sanitize content html
                 $content = $this->sanitizeContent($content);
             } catch(\exception $e) {
